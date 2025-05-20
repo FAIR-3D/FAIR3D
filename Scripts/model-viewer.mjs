@@ -178,13 +178,26 @@ loader.load('Models/FAIR3DWheel.glb',
 
     window.animatableParts = { pins, spinner };
 
+    // ✅ Hide loader, show intro screen
+    const loaderScreen = document.getElementById('loader-screen');
+    if (loaderScreen) loaderScreen.remove();
+
+    const introScreen = document.getElementById('intro-screen');
+    if (introScreen) introScreen.classList.remove('hidden');
   },
-  undefined,
+  (xhr) => {
+    // Progress update
+    const percent = xhr.loaded / xhr.total * 100;
+    const bar = document.getElementById('loader-bar');
+    if (bar) bar.style.width = `${percent.toFixed(0)}%`;
+  },
   (error) => {
     console.error('Error loading GLB model:', error);
-    container.style.display = 'none';
-    const logo = document.querySelector('.fairlogo');
-    if (logo) logo.classList.add('fade-in');
+    const loaderScreen = document.getElementById('loader-screen');
+    if (loaderScreen) loaderScreen.remove();
+
+    const introScreen = document.getElementById('intro-screen');
+    if (introScreen) introScreen.classList.remove('hidden');
   }
 );
 
