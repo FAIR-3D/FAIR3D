@@ -261,6 +261,43 @@ document.addEventListener('mousemove', (event) => {
   targetLookX = y * 0.45;
 });
 
+// Model Rotation
+
+
+document.addEventListener('mousemove', (event) => {
+  const x = (event.clientX / window.innerWidth) - 0.5;
+  const y = (event.clientY / window.innerHeight) - 0.5;
+
+  targetLookY = x * 0.45; // Max ±10° in radians
+  targetLookX = y * 0.45;
+});
+
+let lastTouchX = null;
+let lastTouchY = null;
+
+document.addEventListener('touchstart', (e) => {
+  if (e.touches.length === 1) {
+    lastTouchX = e.touches[0].clientX;
+    lastTouchY = e.touches[0].clientY;
+  }
+});
+
+document.addEventListener('touchmove', (e) => {
+  if (e.touches.length === 1) {
+    const currentX = e.touches[0].clientX;
+    const currentY = e.touches[0].clientY;
+
+    const deltaX = currentX - lastTouchX;
+    const deltaY = currentY - lastTouchY;
+
+    lastTouchX = currentX;
+    lastTouchY = currentY;
+
+    targetLookY += deltaX * 0.002;
+    targetLookX += deltaY * 0.002;
+  }
+});
+
 
 window.startModelMouseTracking = () => {
   enableLookAtCursor = true;
