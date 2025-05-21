@@ -211,8 +211,41 @@ function fadeOutAudio(audio, duration = 1000) {
 		});
 	  }
 
+
+	// Load EmailJS
+	const emailScript = document.createElement('script');
+	emailScript.src = 'https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js';
+	emailScript.onload = () => emailjs.init('peKmrkbhU3GNvd0XJ'); // 🔁 Replace this with YOUR actual public key!
+	document.head.appendChild(emailScript);
+
+	// Contact form handler
+	document.addEventListener("DOMContentLoaded", () => {
+	const form = document.getElementById('contact-form');
+	const status = document.getElementById('form-status');
+
+	if (form) {
+		form.addEventListener('submit', function (e) {
+		e.preventDefault();
+		status.textContent = "Sending...";
+
+		emailjs.sendForm('service_uov7a3v', 'template_9xeninf', this)
+			.then(() => {
+			status.textContent = "✅ Message sent successfully!";
+			form.reset();
+			}, (err) => {
+			console.error("❌ Email send failed:", err);
+			status.textContent = "⚠️ Something went wrong. Try again.";
+			});
+		});
+	}
+	});
+
+
+
+
+
+
+
 	const headers = document.querySelectorAll('.headerlogo');
 	headers.forEach(el => observer.observe(el));
-	const aboutBlocks = document.querySelectorAll('.about-block');
-	aboutBlocks.forEach(el => observer.observe(el));
 
