@@ -27,7 +27,19 @@ header {
   font-style: normal;
 }
 
-		/* ----------INTRO SCREEN---------- */
+.heading {
+  font-family: 'Orbitron', sans-serif;
+  color: #ffd1aa;
+  font-size: 1.5rem;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+
+/* -------------------------------------------------- */
+/* ------------------ INTRO SCREEN ------------------ */
+/* -------------------------------------------------- */
 
 
 #intro-particles {
@@ -206,8 +218,9 @@ header {
 }
 
 
-
-		/* ----------MODEL-VIEWER---------- */
+/* -------------------------------------------------- */
+/* ------------------ MODEL VIEWER ------------------ */
+/* -------------------------------------------------- */
 
 
 #model-viewer-container {
@@ -227,7 +240,9 @@ header {
 }
 
 
-		/* ----------FAIRLOGO---------- */
+/* -------------------------------------------------- */
+/* -------------------- FAIRLOGO -------------------- */
+/* -------------------------------------------------- */
 
 
 /* LOGO CONTAINER BEHAVIOR */
@@ -269,7 +284,12 @@ header {
   transition: max-height 0.5s ease, transform 0.5s ease;
 }
 
-/* === SECTIONS === */
+
+/* -------------------------------------------------- */
+/* -------------------- SECTIONS -------------------- */
+/* -------------------------------------------------- */
+
+
 main {
   padding-top: 0px;
 }
@@ -344,7 +364,9 @@ main {
 }
 
 
-		/* ----------NAVBAR---------- */
+/* -------------------------------------------------- */
+/* --------------------- NAVBAR --------------------- */
+/* -------------------------------------------------- */
 
 
 #bottom-navbar {
@@ -417,9 +439,9 @@ main {
 }
 
 
-
-		/* ----------GALLERY---------- */
-
+/* -------------------------------------------------- */
+/* ---------------------- GALLERY ------------------- */
+/* -------------------------------------------------- */
 
 
 .masonry-gallery {
@@ -468,9 +490,9 @@ main {
   }
 
 
-
-		/* ----------VIDEOS---------- */
-
+/* -------------------------------------------------- */
+/* ---------------------- VIDEOS -------------------- */
+/* -------------------------------------------------- */
 
 
 .masonry-videos {
@@ -510,8 +532,9 @@ main {
 }
 
 
-		/* ----------SOUNDTOGGLE---------- */
-
+/* -------------------------------------------------- */
+/* ------------------- SOUNDTOGGLE ------------------ */
+/* -------------------------------------------------- */
 
 
 .sound-toggle {
@@ -542,8 +565,9 @@ main {
 }
 
 
-
-		/* ----------ABOUTPAGE---------- */
+/* -------------------------------------------------- */
+/* ---------------------- ABOUT --------------------- */
+/* -------------------------------------------------- */
 
 
 .about-wrapper {
@@ -576,7 +600,10 @@ main {
 }
 
 
-		/* ----------WRITINGPAGE---------- */
+/* -------------------------------------------------- */
+/* --------------------- WRITING -------------------- */
+/* -------------------------------------------------- */
+
 
 .writing-content {
   max-width: 850px;
@@ -633,8 +660,9 @@ main {
 }
 
 
-		/* ----------MOBILEMENU---------- */
-
+/* -------------------------------------------------- */
+/* ------------------- MOBILEMENU ------------------- */
+/* -------------------------------------------------- */
 
 
 #mobile-menu-toggle {
@@ -718,7 +746,9 @@ main {
 }
 
 
-		/* ----------LOADINGSCREEN---------- */
+/* -------------------------------------------------- */
+/* ----------------- LOADINGSCREEN ------------------ */
+/* -------------------------------------------------- */
 
 
 #loader-screen {
@@ -762,29 +792,25 @@ main {
 }   
 
 
-		/* ----------CONTACTFROM---------- */
+/* -------------------------------------------------- */
+/* -------------------- CONTACT --------------------- */
+/* -------------------------------------------------- */
 
 
-/* ----------CONTACTSTYLE---------- */
-
-/* ---------- CONTACT 2-COLUMN LAYOUT ---------- */
-.contact-wrapper {
-  padding: 2rem;
+.row-block {
   display: flex;
-  justify-content: center;
-}
-
-.contact-columns {
-  display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
   max-width: 1100px;
   width: 100%;
-  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-.contact-left,
-.contact-right {
+.left-block,
+.right-block {
   flex: 1 1 48%;
   background-color: #2a2a2a;
   padding: 2rem;
@@ -793,7 +819,18 @@ main {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 }
 
-/* ----- LEFT (Intro Text + Social) ----- */
+@media screen and (max-width: 850px) {
+  .row-block {
+    flex-direction: column;
+  }
+
+  .left-block,
+  .right-block {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
 .contact-intro {
   text-align: center;
 }
@@ -841,15 +878,8 @@ main {
   box-shadow: 0 0 10px #ffe5d455;
 }
 
-/* ----- RIGHT (Form) ----- */
-.contact-right .form-title {
-  font-family: 'Orbitron', sans-serif;
-  color: #ffd1aa;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  letter-spacing: 1px;
-}
+
+/* ------------------ CONTACTFORM ------------------- */
 
 .contact-form {
   display: flex;
@@ -898,47 +928,6 @@ main {
   text-align: center;
   margin-top: 1rem;
   font-family: 'Orbitron', sans-serif;
-}
-
-/* ---------- Responsive ---------- */
-@media screen and (max-width: 850px) {
-  .contact-columns {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .contact-left,
-  .contact-right {
-    flex: 0 0 auto;
-    width: 100%;
-    min-width: 0;
-  }
-
-  .contact-right {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .contact-links {
-    flex-direction: column;
-  }
-
-  .contact-button {
-    flex: 1 1 100%;
-  }
-
-  .contact-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .form-title {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
 }
 
 
