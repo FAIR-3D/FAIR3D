@@ -120,7 +120,7 @@ loader.load('Models/FAIR3DWheel.glb',
         }    
 
       if (mat.name === 'Vent') {
-        const emissiveTex = new THREE.TextureLoader().load('../Models/VentsEmit.jpg');
+        const emissiveTex = new THREE.TextureLoader().load('Models/VentsEmit.jpg');
         emissiveTex.colorSpace = THREE.SRGBColorSpace;
         emissiveTex.wrapS = emissiveTex.wrapT = THREE.RepeatWrapping;
         emissiveTex.needsUpdate = true;
