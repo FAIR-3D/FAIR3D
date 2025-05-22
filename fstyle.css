@@ -36,6 +36,12 @@ header {
   margin-bottom: 1rem;
 }
 
+.paragraph {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #ffe5d4;
+}
+
 
 /* -------------------------------------------------- */
 /* ------------------ INTRO SCREEN ------------------ */
@@ -626,30 +632,31 @@ main {
 
 .writing-image img {
   width: 100%;
-  max-width: 600px;
+  max-width: none;
   border-radius: 0.5rem;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  display: block;
+  padding: 0 4rem;
+}
+
+.writing-link {
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .writing-link a {
-  color: #ffd1aa;
-  font-size: 1.2rem;
-  text-decoration: underline;
-  transition: color 0.3s ease;
+  color: #ffddb0;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #3a3a3a;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.4rem;
+  display: inline-block;
+  transition: background-color 0.3s ease;
 }
 
 .writing-link a:hover {
-  color: #ffffff;
-}
-
-.writing-description {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  background-color: #2a2a2a;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid #ffe5d422;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  background-color: #5a5a5a;
 }
 
 @media (max-width: 768px) {
@@ -817,6 +824,13 @@ main {
   border: 1px solid #ffe5d422;
   border-radius: 0.5rem;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.left-block img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 850px) {
