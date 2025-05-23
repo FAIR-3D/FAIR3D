@@ -39,37 +39,54 @@ function fadeInAudio(audio, targetVolume = 0.8, duration = 1000) {
 /* ------------------ AUDIO SETUP ------------------- */
 /* -------------------------------------------------- */
 
+/* -- INTRO SFX -- */
+const introButtonSound = new Audio('SFX/IntroButton.wav');
+introButtonSound.preload = 'auto';
 
+/* -- LOGO SFX -- */
+const logoSound = new Audio('SFX/LogoReveal.wav');
+logoSound.preload = 'auto';
+logoSound.volume = 0.8;
+
+/* -- DRONE SFX -- */
+const droneLoop = new Audio('SFX/Drone.mp3');
+droneLoop.loop = true;
+droneLoop.volume = 0.6;
+droneLoop.preload = 'auto';
+
+/* -- HOVER SFX -- */
 const hoverSounds = [
 	new Audio('SFX/Button1.wav'),
 	new Audio('SFX/Button2.wav'),
 	new Audio('SFX/Button3.wav')
 ];
-const navClickSound = new Audio('SFX/Button.wav');
-const introButtonSound = new Audio('SFX/IntroButton.wav');
-const logoSound = new Audio('SFX/LogoReveal.wav');
-const droneLoop = new Audio('SFX/Drone.mp3');
-droneLoop.loop = true;
-droneLoop.volume = 0.8;
-droneLoop.preload = 'auto';
-
-const sparkSound = new Audio('SFX/Spark.wav');
-sparkSound.preload = 'auto';
-sparkSound.volume = 0.5;
-
 hoverSounds.forEach(s => s.preload = 'auto');
-introButtonSound.preload = 'auto';
+hoverSounds.forEach(s => {
+s.volume = 0.2;
+});
+
+/* -- CLICK SFX -- */
+const navClickSound = new Audio('SFX/Button.wav');
+navClickSound.volume = 0.3;
 navClickSound.preload = 'auto';
 
-let soundEnabled = false;
+/* -- SWIPE SFX -- */
+const swipeSound = new Audio('SFX/Swipe.wav');
+swipeSound.preload = 'auto';
+swipeSound.volume = 0.3; 
 
 /* -- SPARK SFX -- */
-
+const sparkSound = new Audio('SFX/Spark.wav');
+sparkSound.preload = 'auto';
+sparkSound.volume = 0.3;
 window.playSparkSound = () => {
 	if (!soundEnabled) return;
 	sparkSound.currentTime = 0;
 	sparkSound.play().catch(() => {});
 };
+
+let soundEnabled = false;
+
 
 /* -------------------------------------------------- */
 /* ------------------ DOM ELEMENTS ------------------ */
@@ -123,7 +140,38 @@ window.navigateTo = async function(targetId) {
 	if (!section) return;
 
 	allSections.forEach(sec => sec.style.display = 'none');
-	section.style.display = 'block';
+
+	if (soundEnabled) {
+	swipeSound.currentTime = 0;
+	swipeSound.play().catch(() => {});
+	}
+
+	setTimeout(() => {
+	section.style.display = 'block'; // ← put this back here so page shows
+
+	// ✅ Highlight active nav button
+	document.querySelectorAll('#bottom-navbar li').forEach(li => {
+		li.classList.remove('active-nav');
+	});
+
+	const navLabels = {
+		'page-home': 'Home',
+		'page-images': 'Images',
+		'page-videos': 'Videos',
+		'page-writing': 'Writing',
+		'page-contact': 'Contact',
+		'page-about': 'About',
+		'page-broadcast': 'Broadcast'
+	};
+
+	const current = navLabels[targetId];
+	document.querySelectorAll('#bottom-navbar li').forEach(li => {
+		if (li.textContent.trim() === current) {
+		li.classList.add('active-nav');
+		}
+	});
+
+	}, 200);
 
 	logoContainer.style.display = (targetId === 'page-home') ? 'flex' : 'none';
 	document.body.style.overflowY = (targetId === 'page-home') ? 'hidden' : 'auto';
@@ -134,8 +182,10 @@ window.navigateTo = async function(targetId) {
 	}
 
 	if (targetId === 'page-images') {
-		const { initMasonryGallery } = await import('./Scripts/gallery.js');
+	const { initMasonryGallery } = await import('./Scripts/gallery.js');
+	setTimeout(() => {
 		initMasonryGallery();
+	}, 220); // Slightly more than page-switch delay
 	}
 
 	if (targetId === 'page-writing') {
@@ -287,4 +337,16 @@ document.addEventListener("DOMContentLoaded", () => {
 				});
 		});
 	}
+});
+
+
+/* -------------------------------------------------- */
+/* ---------------- EMAILJS CONTACT ----------------- */
+/* -------------------------------------------------- */
+
+
+$(document).ready(function () {
+  $('audio').mediaelementplayer({
+    features: ['playpause', 'progress', 'current', 'duration', 'volume']
+  });
 });
