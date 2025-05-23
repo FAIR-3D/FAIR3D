@@ -13,6 +13,10 @@
 	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://unpkg.com/basiclightbox@5/dist/basicLightbox.min.css">
 	<script src="https://unpkg.com/basiclightbox@5/dist/basicLightbox.min.js"></script>
+	<link rel="stylesheet" href="MediaElement/mediaelementplayer.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="MediaElement/mediaelement-and-player.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 
@@ -81,6 +85,7 @@
 				<div class="headerlogo">
 					<img src="Images/Images.png" alt="Images" class="responsive"/>
 				</div>
+				<div class="section-divider"></div>
 			</div>
 			<div class="masonry-gallery">
 				<div class="grid-sizer"></div>
@@ -117,6 +122,7 @@
 				<div class="headerlogo">
 					<img src="Images/Videos.png" alt="Videos" class="responsive"/>
 				</div>
+				<div class="section-divider"></div>
 			</div>
 			<div class="masonry-videos">
 				<div class="grid-sizer"></div>
@@ -181,6 +187,7 @@
 			  <div class="headerlogo">
 				<img src="Images/Writing.png" alt="Writing" class="responsive"/>
 			  </div>
+			  <div class="section-divider"></div>
 			</div>
 		  
 			<div class="writing-content">
@@ -228,6 +235,60 @@
 
 
 <!-------------------------------------------------------->		  
+<!----------------------- BROADCAST ---------------------->
+<!-------------------------------------------------------->
+
+
+		<div id="page-broadcast" class="page-section" style="display: none;">
+			<div class="header-wrapper">
+				<div class="headerlogo">
+					<img src="Images/Broadcast.png" alt="Broadcast" class="responsive"/>
+				</div>
+				<div class="section-divider"></div>
+			</div>
+
+			<div class="broadcast-container">
+				<div class="broadcast-description">
+					<p>A creative feed—showcasing the sounds, scenes, and stories I’m building.</p>
+				</div>
+				<div class="broadcast-entry">
+					<h2 class="broadcast-title">SableBorn Audio</h2>
+					<p class="paragraph">
+						Early audio exploration—tones, textures, and rhythms pulled from the edges of a fractured world.
+					</p>
+					<div class="image-container">
+  						<img src="Broadcast/Domain Logo.jpg" alt="Domain Logo"/>
+					</div>		
+					<div class="audio-track">
+						<h3 class="track-title">Desolation</h3>
+						<audio src="Broadcast/Audio/Desolation.mp3" type="audio/mp3" controls></audio>
+					</div>		
+					<div class="audio-track">
+						<h3 class="track-title">Echoes</h3>
+						<audio src="Broadcast/Audio/Echoes.mp3" type="audio/mp3" controls></audio>
+					</div>							
+					<div class="audio-track">
+						<h3 class="track-title">Eclipse</h3>
+						<audio src="Broadcast/Audio/Eclipse.mp3" type="audio/mp3" controls></audio>
+					</div>						
+					<div class="audio-track">
+						<h3 class="track-title">Purge</h3>
+						<audio src="Broadcast/Audio/Purge.mp3" type="audio/mp3" controls></audio>
+					</div>		
+					<div class="audio-track">
+						<h3 class="track-title">Resurgence</h3>
+						<audio src="Broadcast/Audio/Resurgence.mp3" type="audio/mp3" controls></audio>
+					</div>		
+					<div class="audio-track">
+						<h3 class="track-title">Under Their Shadow</h3>
+						<audio src="Broadcast/Audio/UnderTheirShadow.mp3" type="audio/mp3" controls></audio>
+					</div>	
+				</div>
+			</div>
+		</div>
+
+
+<!-------------------------------------------------------->		  
 <!------------------------ CONTACT ----------------------->
 <!-------------------------------------------------------->	
 
@@ -237,6 +298,7 @@
 				<div class="headerlogo">
 					<img src="Images/Contact.png" alt="Contact" class="responsive"/>
 				</div>
+				<div class="section-divider"></div>
 			</div>
 
 			<div class="row-block">
@@ -283,6 +345,7 @@
 			  <div class="headerlogo">
 				<img src="Images/About.png" alt="About" class="responsive"/>
 			  </div>
+			  <div class="section-divider"></div>
 			</div>
 		  
 			<div class="about-wrapper">
@@ -323,6 +386,7 @@
 		<li onclick="navigateTo('page-images')">Images</li>
 		<li onclick="navigateTo('page-videos')">Videos</li>
 		<li onclick="navigateTo('page-writing')">Writing</li>
+		<li onclick="navigateTo('page-broadcast')">Broadcast</li>
 		<li onclick="navigateTo('page-contact')">Contact</li>
 		<li onclick="navigateTo('page-about')">About</li>
 	  </ul>
@@ -339,7 +403,8 @@
 			<li onclick="navigateTo('page-home')">Home</li>
 			<li onclick="navigateTo('page-images')">Images</li>
 			<li onclick="navigateTo('page-videos')">Videos</li>
-			<li onclick="navigateTo('page-writing')">Writing</li>			
+			<li onclick="navigateTo('page-writing')">Writing</li>	
+			<li onclick="navigateTo('page-broadcast')">Broadcast</li>		
 			<li onclick="navigateTo('page-contact')">Contact</li>
 			<li onclick="navigateTo('page-about')">About</li>
 		</ul>
